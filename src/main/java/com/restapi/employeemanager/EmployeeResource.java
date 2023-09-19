@@ -1,11 +1,12 @@
 package com.restapi.employeemanager;
 
 import com.restapi.employeemanager.service.EmployeeService;
-import model.Employee;
+import com.restapi.employeemanager.model.Employee;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -34,14 +35,15 @@ public class EmployeeResource {
         Employee newEmployee = employeeService.addEmployee(employee);
         return new ResponseEntity<>(employee, HttpStatus.CREATED);
     }
-    @PutMapping("/update")
-    public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee){
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Employee> updateEmployee(@PathVariable("id") Long id,@RequestBody Employee employee){
         Employee updateEmployee = employeeService.updateEmployee(employee);
-        return new ResponseEntity<>(updateEmployee, HttpStatus.CREATED);
+        return new ResponseEntity<>(updateEmployee, HttpStatus.OK);
     }
+    @Transactional
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id){
         employeeService.deleteEmployee(id);
-        return new ResponseEntity<>( HttpStatus.CREATED);
+        return new ResponseEntity<>( HttpStatus.OK);
     }
 }
