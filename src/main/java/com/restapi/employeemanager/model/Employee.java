@@ -1,4 +1,4 @@
-package model;
+package com.restapi.employeemanager.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
