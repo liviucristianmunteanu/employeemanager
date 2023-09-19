@@ -1,12 +1,11 @@
 package com.restapi.employeemanager.service;
 
 import com.restapi.employeemanager.repo.EmployeeRepo;
-import model.Employee;
+import com.restapi.employeemanager.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class EmployeeService {
