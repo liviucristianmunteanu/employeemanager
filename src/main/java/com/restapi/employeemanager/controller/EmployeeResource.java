@@ -1,4 +1,4 @@
-package com.restapi.employeemanager;
+package com.restapi.employeemanager.controller;
 
 import com.restapi.employeemanager.service.EmployeeService;
 import com.restapi.employeemanager.model.Employee;
